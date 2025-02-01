@@ -387,7 +387,10 @@ document.addEventListener("DOMContentLoaded", function() {
                   }
               },
           y: {
-              ticks: { color: '#ffffff' }
+              ticks: { color: '#ffffff',
+                maxRotation: 90,
+                minRotation: 20,
+              }
           }
         },
         plugins: {

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-symbols-outlined search-icon" onclick="toggleSearch()">search</span>
+                <form id="search-form" onsubmit="performSearch(event)">
+                    <input type="text" id="search-bar" class="search-bar" placeholder="Search...">
+                </form>
+            </div>
+            <div class="header-right">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="material-symbols-outlined">person</span>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <img class="logo" src="block-logo.png" alt="Block Logo">
+                </div>
+                <span class="material-symbols-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank">
+                        <span class="material-symbols-outlined">grid_view</span> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">trending_up</span> Analytics
+                </li>
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">gavel</span> Cases
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-container">
+            <div class="main-title">
+                <h2>DASHBOARD</h2>
+            </div>
+
+            <div class="main-cards">
+
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Settlements</h3>
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <h1 id="settlements">0</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Cases Settled</h3>
+                        <span class="material-symbols-outlined">task</span>
+                    </div>
+                    <h1 id="cases-settled">0</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>New Cases Signed</h3>
+                        <span class="material-symbols-outlined">cases</span>
+                    </div>
+                    <h1 id="new-cases-signed">0</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <h3>Month over Month</h3>
+                        <span class="material-symbols-outlined">percent</span>
+                    </div>
+                    <h1>3%</h1>
+                </div>
+            </div>
+
+            <div class="charts">
+
+                <div class="charts-card">
+                  <h2 class="chart-title">GMB Profile Interactions (monthly)</h2>
+                  <canvas id="gmb-chart"></canvas>
+                </div>
+      
+                <div class="charts-card">
+                  <h2 class="chart-title">Marketing Analytics</h2>
+                  <div id="csv-chart-container">
+                    <canvas id="csv-chart"></canvas>
+                  </div>
+                </div>
+
+                <div class="chart-cards-container charts-card">
+                    <div class="progress-chart-title">
+                        <h2 class="chart-title progress-title">Progress & Goals</h2>
+                    </div>
+                    <!-- Progress Chart -->
+                    <div class="progress-section-container">
+                        <div class="progress-chart-container">
+                            <canvas id="progress-chart"></canvas>
+                        </div>
+                        
+                        <!-- Cards Section -->
+                        <div class="stacked-cards">
+                            <div class="goal-card-top">
+                                <div class="goal-card" id="goal-card-1">
+                                    <div class="goal-card-inner">
+                                        <h3>Goal</h3>
+                                    </div>
+                                    <div class="goal-card-inner-value">
+                                        <h2>5</h2>
+                                    </div>
+                                </div>
+                                <div class="goal-card" id="goal-card-2">
+                                    <div class="goal-card-inner">
+                                        <h3>Goal</h3>
+                                    </div>
+                                    <div class="goal-card-inner-value">
+                                        <h2>5</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-card-bottom">
+                                <div class="goal-card" id="goal-card-3">
+                                    <div class="goal-card-inner">
+                                        <h3>Goal</h3>
+                                    </div>
+                                    <div class="goal-card-inner-value">
+                                        <h2>5</h2>
+                                    </div>
+                                </div>
+                                <div class="goal-card" id="goal-card-4">
+                                    <div class="goal-card-inner">
+                                        <h3>Goal</h3>
+                                    </div>
+                                    <div class="goal-card-inner-value">
+                                        <h2>250</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>            
+
+        </main>
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+    <!-- JS -->
+    <script src="script.js"></script> 
+</body>
+</html>

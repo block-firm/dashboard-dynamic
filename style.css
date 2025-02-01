@@ -404,6 +404,24 @@ main {
     .menu-icon {
         display: inline-block;
     }
+
+       .progress-section-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stacked-cards {
+        width: 100%;
+    }
+
+    .goal-card-top, .goal-card-bottom {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .goal-card {
+        width: 100%;
+    }
     
 }
 

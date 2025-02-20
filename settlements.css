@@ -1,0 +1,117 @@
+:root {
+    --primary-background: #1d2634;
+    --secondary-background: #263043;
+}
+
+body {
+    padding: 20px;
+    background: #1d2634;
+    color: white;
+}
+
+.content-container {
+    background: #263043;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.filter-bar-container {
+    display: flex;
+    border: solid 1px rgb(228, 224, 224);
+    width: max-content;
+    border-radius: 10px;
+    
+}
+
+button {
+    background: transparent;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.filter-bar-container button:not(:last-child) {
+    border-right: 2px solid rgb(228, 224, 224); /* Border only between buttons */
+}
+
+button:hover {
+    background: rgb(228, 224, 224);
+    overflow-x: hidden;
+    color: black;
+}
+
+.active-filter {
+    background:  rgb(228, 224, 224);
+    color: black;
+}
+
+.kpi-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.kpi-box {
+    background: #d50000;
+    padding: 0 2rem;
+    border-radius: 15px;
+
+}
+
+.kpi-box:nth-child(2) {
+    background: #ff6d00;
+}
+
+.super-star-container {
+    background: var(--secondary-background);
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    display: flex;
+    flex-direction:column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.super-star-container h3 {
+    text-align: center;
+}
+
+.settlement-chart-container {
+    background: #263043;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+}
+
+.super-star-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 3rem;
+}
+
+.super-star-content > p {
+    background:#e94432;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.home-btn {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    cursor: pointer;
+}

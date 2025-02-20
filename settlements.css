@@ -52,6 +52,7 @@ button:hover {
     justify-content: center;
     gap: 2rem;
     text-align: center;
+    align-items: flex-start;
     margin-top: 2rem;
 }
 
@@ -59,28 +60,25 @@ button:hover {
     background: #d50000;
     padding: 0 2rem;
     border-radius: 15px;
+    height: auto;
 
 }
 
-.kpi-box:nth-child(2) {
+.kpi-box-2 {
     background: #ff6d00;
 }
 
 .super-star-container {
-    background: var(--secondary-background);
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-    width: 50%;
     display: flex;
-    flex-direction:column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
+    flex-direction: column;
+    background:#0044CC;
+    padding: 10px 25px;
+    border-radius: 10px;
 }
 
 .super-star-container h3 {
     text-align: center;
+    margin-top: 5px;
 }
 
 .settlement-chart-container {
@@ -93,15 +91,24 @@ button:hover {
 
 .super-star-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 1rem;
-    gap: 3rem;
+    align-items: center;
+    gap: 5px;
+    /* margin-top: 1rem;
+    gap: 3rem; */
 }
 
 .super-star-content > p {
-    background:#e94432;
-    padding: 25px;
-    border-radius: 10px;
+    padding: 5px;
+    margin: 0;
+}
+
+#highest-settlement {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
 }
 
 .home-btn {
@@ -114,4 +121,28 @@ button:hover {
 
 .home-btn:hover {
     cursor: pointer;
+}
+
+.home-btn-container {
+    margin-top: 2rem;
+}
+
+/* Charts */
+
+.chart-container {
+    display: grid;
+    grid-template-columns: 1.10fr 1fr;
+    background: var(--secondary-background);
+    margin-top: 2rem;
+}
+
+.pie-chart-container {
+    padding: 25px;
+    margin-top: 2rem;
+    color: white;
+}
+
+canvas {
+    max-width: 100% !important;
+    height: auto;
 }

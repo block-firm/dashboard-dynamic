@@ -244,6 +244,10 @@ main {
     background: #d50000;
 }
 
+#settlements {
+    color: white;
+}
+
 /* ----Charts---- */
 
 .chart-title {

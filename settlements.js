@@ -2,7 +2,7 @@
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTbuiacsaHXFHf6WsVqdE5nvCpPyZc_CkwaWdG5G5R4MmKc4P6hUt3AYVwyzL1W7KGHIhubkcVRcRff/pub?output=csv';
 
 let rawData = [];
-let chartInstance;
+let chartInstance, pieChartInstance;
 const filters = {
     week: false,
     month: false,
@@ -49,6 +49,7 @@ function fetchData() {
             updateKPIs(rawData);
             updateChart(rawData); 
             updateSuperStar(rawData);
+            updatePieChart(rawData);
         },
         error: function(error) {
             console.error("Error parsing CSV:", error);
@@ -104,6 +105,7 @@ function filterData(filterType) {
     updateKPIs(filteredData);
     updateChart(filteredData);
     updateSuperStar(filteredData);
+    updatePieChart(filteredData);
 }
 
 // ---------- Update KPI Metrics ----------
@@ -121,6 +123,16 @@ function updateKPIs(data) {
     
     document.getElementById("total-settlements").textContent = `$${totalSettlements.toLocaleString()}`;
     document.getElementById("firm-profit").textContent = `$${(totalSettlements * 0.4).toLocaleString()}`;
+}
+
+async function updateCharts(data) {
+    if (typeof Chart === 'undefined') {
+        console.error("Chart.js is not loaded.");
+        return;
+    }
+
+    await updatePieChart(data); // Ensure Pie Chart updates first
+    await updateLineChart(data); // Then update Line Chart
 }
 
 // ---------- Update Line Chart ----------
@@ -178,6 +190,32 @@ function updateChart(data) {
             }
         }
     });
+}
+
+// ---------- Update Pie Chart ----------
+
+function updatePieChart(data) {
+    if (typeof Chart === 'undefined') {
+        console.error("Chart.js is not loaded.");
+        return;
+    }
+
+    let caseTypes = data.reduce((acc, row) => {
+        acc[row["Case Type"]] = (acc[row["Case Type"]] || 0) + row["Settlement Amount"];
+        return acc;
+    }, {});
+
+    let labels = Object.keys(caseTypes);
+    let values = Object.values(caseTypes);
+    let colors = ["#ff6384", "#36a2eb", "#4bc0c0", "#ffce56"];
+
+    if (pieChartInstance) pieChartInstance.destroy();
+    pieChartInstance = new Chart(document.getElementById("pie-chart").getContext("2d"), {
+        type: "pie",
+        data: { labels, datasets: [{ data: values, backgroundColor: colors }] },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
 }
 
 // ---------- Update Super Star Settlement ----------

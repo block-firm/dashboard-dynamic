@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settlements Insights</title>
+    <link rel="stylesheet" href="settlements.css">
+</head>
+<body>
+
+<div class="content-container">
+    <!-- Filter Bar -->
+    <div class="filter-bar-container">
+        <button id="week-filter-button" onclick="filterData('week')">Last 7 Days</button>
+        <button id="month-filter-button" onclick="filterData('month')">Last 30 Days</button>
+        <button id="habitability-filter-button" onclick="filterData('habitability')">Habitability</button>
+        <button id="personalInjury-filter-button" onclick="filterData('personalInjury')">Personal Injury</button>
+    </div>
+
+     <!-- KPI Boxes -->
+    <div class="kpi-container">
+            <div class="kpi-box">
+                <h3>Total Settlements</h3>
+                <h2 id="total-settlements">$0</h2>
+            </div>
+            <div class="kpi-box">
+                <h3>Firm's Profit (40%)</h3>
+                <h2 id="firm-profit">$0</h2>
+            </div>
+    </div>
+</div>
+
+      <!-- Line Chart -->
+    <div class="settlement-chart-container">
+            <canvas id="settlements-chart"></canvas>
+    </div>
+
+      <!-- Super Star Settlement -->
+
+    <div class="super-star-container">
+        <h3>Super Star Settlement</h3>
+        <div class="super-star-content">
+            <p>Highest Settlement: <span id="highest-settlement">$0</span></p>
+            <p>Attorney: <span id="top-attorney">N/A</span></p>
+        </div>
+    </div>
+
+    <a href="index.html" class="home-btn">Home</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="settlements.js"></script>
+</body>
+</html>

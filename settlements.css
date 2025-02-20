@@ -81,14 +81,6 @@ button:hover {
     margin-top: 5px;
 }
 
-.settlement-chart-container {
-    background: #263043;
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-    margin-top: 2rem;
-}
-
 .super-star-content {
     display: flex;
     flex-direction: column;
@@ -102,6 +94,14 @@ button:hover {
 .super-star-content > p {
     padding: 5px;
     margin: 0;
+}
+
+.settlement-chart-container {
+    background: #263043;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
 }
 
 #highest-settlement {
@@ -146,3 +146,5 @@ canvas {
     max-width: 100% !important;
     height: auto;
 }
+
+
